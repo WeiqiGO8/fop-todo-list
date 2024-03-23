@@ -1,0 +1,24 @@
+:root {
+  background: #ffffff;
+}
+
+.title {
+  background: #d1ff35;
+}
+
+.container {
+  background: #78b668;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+}
+
+.list {
+  display: grid;
+  padding: 1em;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.number {
+  background: #f1d1f2;
+  padding: 1em;
+}
