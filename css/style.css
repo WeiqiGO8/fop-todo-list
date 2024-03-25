@@ -1,15 +1,33 @@
 :root {
   background: #ffffff;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.top {
+  background: #d1ff35;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin: 0 20em;
+  padding: 1em;
 }
 
 .title {
-  background: #d1ff35;
+  background: #f1f1f1;
+  padding: 1em;
+}
+
+.number {
+  background: #f1d1f2;
+  padding: 1em;
 }
 
 .container {
-  background: #78b668;
-  display: grid;
-  grid-template-columns: 2fr 1fr;
+  background: #ffe1ae;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 20em;
 }
 
 .list {
@@ -18,7 +36,25 @@
   grid-template-columns: repeat(3, 1fr);
 }
 
-.number {
-  background: #f1d1f2;
+.submit-field {
   padding: 1em;
+}
+
+input[type="text"] {
+  border: none;
+  border-bottom: 0.2em solid red;
+}
+
+.list-container {
+  background: #f5ff4f;
+}
+
+.unordered-style {
+  background: #ffdeff;
+  list-style: none;
+  padding: 0.5em;
+}
+
+.todo-list-style {
+  background: #5fa85f;
 }

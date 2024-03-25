@@ -8,14 +8,23 @@
     <script src="js/script.js" defer></script>
   </head>
   <body>
-    <header class="title">
-      <h1>TO-DO list</h1>
+    <header class="top">
+      <article class="title"><h1>TO-DO list</h1></article>
+      <article class="number amount-number">
+        <h1>Number: 0</h1>
+      </article>
     </header>
 
     <main class="container">
       <article class="list todo-list">Todo</article>
-      <article class="number amount-number">
-        <h1>Number: 0</h1>
+      <article class="submit-field">
+        <input type="text" />
+        <input type="button" value="TO-DO" />
+      </article>
+      <article class="list-container">
+        <ul class="unordered-style">
+          <li class="todo-list-style">list item</li>
+        </ul>
       </article>
     </main>
   </body>
