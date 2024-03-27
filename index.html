@@ -8,18 +8,23 @@
     <script src="js/script.js" defer></script>
   </head>
   <body>
-    <header class="top">
-      <h1 class="title">TO-DO list</h1>
-      <p id="amount" class="amount-number">Number: 0</p>
+    <header>
+      <h1>TO-DO list</h1>
+      <p id="amount" class="amount-style">Number: 0</p>
     </header>
     <main class="container">
-      <article id="submit-field">
-        <input id="submit-text" type="text" />
-        <input id="submit-btn" type="button" value="TO-DO" />
-      </article>
-      <article class="list-container">
-        <ul id="unordered-list"></ul>
-      </article>
+      <form id="todo-form">
+        <input id="todo-text" type="text" name="todo" placeholder="TO-DO" />
+        <input id="todo-btn" type="button" value="TO-DO" />
+      </form>
+      <ul id="todo-ul">
+        <li>
+          <input class="checkbox-style" type="checkbox" name="checkbox" />test
+        </li>
+        <li>
+          <input class="checkbox-style" type="checkbox" name="checkbox" />test
+        </li>
+      </ul>
     </main>
   </body>
 </html>

@@ -1,30 +1,17 @@
-// retreve elements from html
-let submitTextElement = document.getElementById("submit-tex");
-let submitBtnElement = document.getElementById("submit-btn");
-let unorderedListElement = document.getElementById("unordered-list");
-let amountElement = document.getElementById("amount");
-
-amountElement = 1;
+// get html elements
+let amoutELement = document.getElementById("amount");
+let todoTextElement = document.getElementById("todo-text");
+let todoBtnElement = document.getElementById("todo-btn");
+let todoUlElement = document.getElementById("todo-ul");
 
 // array to store the todo list
-let unorderedList = [];
+let ulList = [];
 
 function addTodo(event) {
-  let oldSubmitTextElement = document.querySelectorAll("li");
-  if (oldSubmitTextElement.length > 3) {
-    oldSubmitTextElement[0].remove();
-  }
-
-  let newSubmitTextElement = document.createELement("li");
-  newSubmitTextElement.innerText = "" + amountElement;
-  unorderedListElement.appendChild(newSubmitTextElement);
-  counter += 1;
-
-  submitBtnElement.document.createElement("li");
+  // when clicking on the todoBtnElement --> create new li and input type = checkbox with class checkbox-style
 }
-submitBtnElement.addEventListener("click", addTodo);
 
 // behavour for the existing todo-list items
 function finishedTodo() {}
 
-function removeTodo() {}
+function deleteTodo() {}

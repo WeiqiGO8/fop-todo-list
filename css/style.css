@@ -5,7 +5,7 @@
   padding: 0;
 }
 
-.top {
+header {
   background: #d1ff35;
   display: flex;
   flex-direction: row;
@@ -14,12 +14,12 @@
   padding: 0 1em;
 }
 
-.title {
+header h1 {
   background: #f1f1f1;
   padding: 1em;
 }
 
-.amount-number {
+.amount-style {
   background: #f1d1f2;
   padding: 1em;
 }
@@ -32,25 +32,49 @@
   margin: 0 20em;
 }
 
-#submit-field {
+#todo-form {
   padding: 1em;
 }
 
 input[type="text"] {
+  margin: 2em 0;
+  padding: 1em 0.5em;
   border: none;
   border-bottom: 0.2em solid red;
 }
 
-.list-container {
-  background: #f5ff4f;
+input[type="button"] {
+  margin: 2em 0;
+  padding: 1em;
 }
 
-#unordered-list {
+input[type="checkbox"] {
+  margin: 1em 1em 1em 0;
+  transform: scale(2);
+}
+
+#todo-ul {
   background: #ffdeff;
   list-style: none;
-  padding: 0.5em;
 }
 
-.list-todo {
-  background: #5fa85f;
+#todo-ul li {
+  background: orange;
+  margin: 0 0 0.4em 0;
+  padding: 0 1em;
+  border-bottom: 0.5em solid orange;
+}
+
+#todo-ul li:hover {
+  background-color: #a5a5a5;
+  border-bottom: 0.5em solid #000000;
+}
+
+#todo-ul li.done {
+  background: pink;
+  text-decoration: line-through;
+}
+
+#todo-ul li.delete {
+  background: red;
 }
