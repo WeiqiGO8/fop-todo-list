@@ -70,7 +70,7 @@ input[type="checkbox"] {
   border-bottom: 0.5em solid #000000;
 }
 
-#todo-ul li.checked {
+#todo-ul li.check {
   background: pink;
   text-decoration: line-through;
 }
