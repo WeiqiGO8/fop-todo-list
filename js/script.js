@@ -1,17 +1,27 @@
 // get html elements
 let amoutELement = document.getElementById("amount");
-let todoTextElement = document.getElementById("todo-text");
-let todoBtnElement = document.getElementById("todo-btn");
+
+let inputBtnElement = document.getElementById("input-btn");
 let todoUlElement = document.getElementById("todo-ul");
 
 // array to store the todo list
-let ulList = [];
+let todoList = []; //ulItem
 
 function addTodo(event) {
-  // when clicking on the todoBtnElement --> create new li and input type = checkbox with class checkbox-style
+  let inputTextElement = document.getElementById("input-text");
+  let inputValue = inputTextElement.value;
+  console.log(inputValue);
 }
 
-// behavour for the existing todo-list items
-function finishedTodo() {}
+// toggle finished/not finished todo-list items class style ✅
+function checkedTodo() {}
 
+// remove the checked-style class and remove the list item from the list ❌
 function deleteTodo() {}
+
+function updateTodoNumber() {}
+
+function loadTodoList() {}
+
+//event listeners
+inputBtnElement.addEventListener("click", addTodo);
