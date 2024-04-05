@@ -4,7 +4,9 @@ const inputTextElement = document.getElementById("input-text");
 const inputBtnElement = document.getElementById("input-btn");
 const todoUlElement = document.getElementById("todo-ul");
 
-let todoListArray = []; //ulItem
+// the following 2 lines of code was adapted from ChatGPT: https://chat.openai.com/c/d55fbfc5-80d7-4be3-827c-79acf7548873 - 2024-04-05
+let todoListArray = JSON.parse(localStorage.todoTask || "[]");
+let checkedListArray = JSON.parse(localStorage.checkedTask || "[]");
 
 let amountOfTodo = 0;
 
@@ -13,8 +15,13 @@ function addTodo() {
 
   // if input field is filled - create elements for the value
   if (inputValue !== "") {
+    todoListArray.push(inputValue);
+    localStorage.todoTask = JSON.stringify(todoListArray);
+
     // Update the page
     elementCreation(inputValue);
+  } else {
+    elementCreation.preventDefault();
   }
 }
 
@@ -27,15 +34,16 @@ function elementCreation(inputValue) {
   todoIp.type = "checkbox";
   todoIp.addEventListener("change", checkTodo);
 
+  const todoLi = document.createElement("li");
+
   //delete button
   const deleteBtn = document.createElement("input");
   deleteBtn.type = "button";
   deleteBtn.value = "❌";
   deleteBtn.classList.add("delete");
+  deleteBtn.addEventListener("click", deleteTodo);
 
   const textNode = document.createTextNode(inputValue);
-
-  const todoLi = document.createElement("li");
 
   todoLi.appendChild(todoIp);
   todoLi.appendChild(textNode);
@@ -61,14 +69,10 @@ function deleteTodo() {}
 
 function updateTodoNumber() {}
 
-function setTodo() {
-  const inputValue = localStorage.getItem("todoText");
-  if (inputValue !== null) {
-  }
-}
-
 function loadPageHandler() {
   inputBtnElement.addEventListener("click", addTodo);
-  setTodo();
+  todoListArray.forEach(elementCreation);
 }
+
 window.addEventListener("load", loadPageHandler);
+window.addEventListener("storage", loadPageHandler);
