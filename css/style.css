@@ -87,7 +87,3 @@ input[type="button"].deletebox {
   background: pink;
   text-decoration: line-through;
 }
-
-#todo-ul li.delete {
-  background: red;
-}

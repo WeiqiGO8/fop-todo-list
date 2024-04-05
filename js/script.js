@@ -19,6 +19,12 @@ function addTodoTask() {
   inputTextElement.value = "";
 }
 
+// save checked todo task to localStorage in checkedListArray
+function saveCheckedTodoTask() {}
+
+// remove todo task from the list and localStorage
+function removeTodoTask() {}
+
 // the following 19 lines of code was adapted from a combination of:
 // https://www.shecodes.io/athena/42851-how-to-create-a-to-do-list-using-html-css-and-javascript - 2024-03-28
 // https://chat.openai.com/c/f2ef1436-01cc-4e32-ac24-2062a7c83229 - 2024-04-05
