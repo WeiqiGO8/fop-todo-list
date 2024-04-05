@@ -48,9 +48,18 @@ input[type="button"] {
   padding: 1em;
 }
 
+input[type="button"].delete {
+  margin: 0 0 0 2em;
+  padding: 0.1em;
+  font-size: 1em;
+  border-radius: 0.5em;
+  cursor: pointer;
+}
+
 input[type="checkbox"] {
-  margin: 1em 1em 1em 0;
+  margin: 1.2em 2em 1em 0;
   transform: scale(2);
+  cursor: pointer;
 }
 
 #todo-ul {
@@ -60,6 +69,7 @@ input[type="checkbox"] {
 
 #todo-ul li {
   background: orange;
+  border-radius: 1em 1em 1em 1em;
   margin: 0 0 0.4em 0;
   padding: 0 1em;
   border-bottom: 0.5em solid orange;

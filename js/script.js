@@ -1,31 +1,46 @@
 // get html elements
-let amoutELement = document.getElementById("amount");
-let inputTextElement = document.getElementById("input-text");
-let inputBtnElement = document.getElementById("input-btn");
-let todoUlElement = document.getElementById("todo-ul");
+const amoutELement = document.getElementById("amount");
+const inputTextElement = document.getElementById("input-text");
+const inputBtnElement = document.getElementById("input-btn");
+const todoUlElement = document.getElementById("todo-ul");
 
-// array to store the todo list
-let todoList = []; //ulItem
+let todoListArray = []; //ulItem
+
+let amountOfTodo = 0;
+
+function addTodo() {
+  const inputValue = inputTextElement.value;
+
+  // if input field is filled - create elements for the value
+  if (inputValue !== "") {
+    // Update the page
+    elementCreation(inputValue);
+  }
+}
 
 // The following 16 lines of code was adapted from
 // https://www.shecodes.io/athena/42851-how-to-create-a-to-do-list-using-html-css-and-javascript - 2024-03-28
 // https://chat.openai.com/c/0f6111b0-0c0c-4ed8-9fbc-c5fd6a6eace9 - 2024-03-28
-function addTodo() {
-  let inputValue = inputTextElement.value;
-
-  let todoIp = document.createElement("input");
+function elementCreation(inputValue) {
+  // create elements for the input value
+  const todoIp = document.createElement("input");
   todoIp.type = "checkbox";
   todoIp.addEventListener("change", checkTodo);
 
-  let textNode = document.createTextNode(inputValue);
+  //delete button
+  const deleteBtn = document.createElement("input");
+  deleteBtn.type = "button";
+  deleteBtn.value = "❌";
+  deleteBtn.classList.add("delete");
 
-  let todoLi = document.createElement("li");
+  const textNode = document.createTextNode(inputValue);
+
+  const todoLi = document.createElement("li");
+
   todoLi.appendChild(todoIp);
   todoLi.appendChild(textNode);
-
+  todoLi.appendChild(deleteBtn);
   todoUlElement.appendChild(todoLi);
-
-  console.log(inputValue);
 }
 
 // toggle finished/not finished todo-list items class style ✅
@@ -46,7 +61,14 @@ function deleteTodo() {}
 
 function updateTodoNumber() {}
 
-function loadTodoList() {}
+function setTodo() {
+  const inputValue = localStorage.getItem("todoText");
+  if (inputValue !== null) {
+  }
+}
 
-//event listeners
-inputBtnElement.addEventListener("click", addTodo);
+function loadPageHandler() {
+  inputBtnElement.addEventListener("click", addTodo);
+  setTodo();
+}
+window.addEventListener("load", loadPageHandler);
