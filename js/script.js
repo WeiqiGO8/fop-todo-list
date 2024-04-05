@@ -63,6 +63,7 @@ function checkTodo(event) {
     localStorage.checkedTask = JSON.stringify(checkedListArray);
   } else {
     todoLi.classList.remove("check");
+
     // the following 6 lines of code was adapted from ChatGPT: https://chat.openai.com/c/5b3e8092-78a0-4fa2-a1ec-0468c859fc60 - 2024-04-05
     let index = checkedListArray.indexOf(todoLi.innerText);
     if (index !== -1) {
@@ -88,7 +89,24 @@ function saveCheckTodo() {
 }
 
 // remove the checked-style class and remove the list item from the list ❌
-function deleteTodo() {}
+// the following 17 lines of code was adapted from chatGPT: https://chat.openai.com/c/b5a2f0a0-e0b7-43fa-8d47-90f84bb49592 - 2024-04-05
+function deleteTodo() {
+  const liElement = this.parentNode;
+  const todoText = liElement.innerText;
+
+  let index = todoListArray.indexOf(todoText);
+  if (index !== -1) {
+    todoListArray.splice(index, 1);
+    localStorage.todoTask = JSON.stringify(todoListArray);
+  }
+
+  let checkedIndex = checkedListArray.indexOf(todoText);
+  if (checkedIndex !== -1) {
+    checkedListArray.splice(checkedIndex, 1);
+    localStorage.checkedTask = JSON.stringify(checkedListArray);
+  }
+  liElement.parentNode.removeChild(liElement);
+}
 
 function updateTodoNumber() {}
 
