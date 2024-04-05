@@ -59,9 +59,32 @@ function checkTodo(event) {
 
   if (todoIp.checked === true) {
     todoLi.classList.add("check");
+    checkedListArray.push(todoLi.innerText);
+    localStorage.checkedTask = JSON.stringify(checkedListArray);
   } else {
     todoLi.classList.remove("check");
+    // the following 6 lines of code was adapted from ChatGPT: https://chat.openai.com/c/5b3e8092-78a0-4fa2-a1ec-0468c859fc60 - 2024-04-05
+    let index = checkedListArray.indexOf(todoLi.innerText);
+    if (index !== -1) {
+      checkedListArray.splice(index, 1);
+      localStorage.checkedTask = JSON.stringify(checkedListArray);
+    }
   }
+}
+
+// the following 13 lines of code was adapted from ChatGPT: https://chat.openai.com/c/5b3e8092-78a0-4fa2-a1ec-0468c859fc60 - 2024-04-05
+function saveCheckTodo() {
+  // Mark todo items as checked and apply styling
+  checkedListArray.forEach(function (todoText) {
+    let todoItems = todoUlElement.getElementsByTagName("li");
+    for (let i = 0; i < todoItems.length; i++) {
+      if (todoItems[i].textContent.trim() === todoText.trim()) {
+        let checkbox = todoItems[i].querySelector("input[type=checkbox]");
+        checkbox.checked = true;
+        todoItems[i].classList.add("check");
+      }
+    }
+  });
 }
 
 // remove the checked-style class and remove the list item from the list ❌
@@ -72,6 +95,7 @@ function updateTodoNumber() {}
 function loadPageHandler() {
   inputBtnElement.addEventListener("click", addTodo);
   todoListArray.forEach(elementCreation);
+  checkedListArray.forEach(saveCheckTodo);
 }
 
 window.addEventListener("load", loadPageHandler);
