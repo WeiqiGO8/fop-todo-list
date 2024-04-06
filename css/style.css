@@ -48,18 +48,17 @@ input[type="button"] {
   padding: 1em;
 }
 
-input[type="button"].checkedbox {
+input[type="checkbox"] {
   margin: 0.4em 0 0 2em;
   padding: 0.01em;
-  font-size: 1.6em;
-  border-radius: 0.5em;
+  transform: scale(2);
   cursor: pointer;
 }
 
 input[type="button"].deletebox {
-  margin: 0.4em 0.2em 0 0;
+  margin: 0.4em 0 0 1.2em;
   padding: 0.01em;
-  font-size: 1.6em;
+  transform: scale(1.4);
   border-radius: 0.5em;
   cursor: pointer;
 }
