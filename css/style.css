@@ -6,7 +6,7 @@
 }
 
 header {
-  background: #d1ff35;
+  background: #9e1111;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
@@ -15,17 +15,16 @@ header {
 }
 
 header h1 {
-  background: #f1f1f1;
   padding: 1em;
 }
 
 .number {
-  background: #f1d1f2;
-  padding: 1em;
+  padding: 1.5em 1em 0 1em;
+  font-size: 1.4em;
 }
 
 .container {
-  background: #ffe1ae;
+  background: #c4c4c4;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -64,17 +63,17 @@ input[type="button"].deletebox {
 }
 
 #todo-ul {
-  background: #ffdeff;
+  background: #949494;
   list-style: none;
 }
 
 #todo-ul li {
-  background: orange;
+  background: #ffffff;
   border-radius: 1em 1em 1em 1em;
   margin: 0 0 0.4em 0;
   padding: 0 1em;
   align-items: center;
-  border-bottom: 0.5em solid orange;
+  border-bottom: 0.5em solid #ffffff;
 }
 
 #todo-ul li:hover {
@@ -83,6 +82,5 @@ input[type="button"].deletebox {
 }
 
 #todo-ul li.check {
-  background: pink;
   text-decoration: line-through;
 }
