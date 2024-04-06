@@ -20,6 +20,7 @@ function addTodoTask() {
 
     // Update the page
     createElements(inputValue);
+    inputTextElement.value = "";
   } else {
     createElements.preventDefault();
   }
