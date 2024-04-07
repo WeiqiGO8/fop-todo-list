@@ -48,9 +48,9 @@ function createElements(inputValue) {
   const textNode = document.createTextNode(inputValue);
 
   todoUlElement.appendChild(liElement);
-  liElement.appendChild(textNode);
   liElement.appendChild(inputCheckboxElement);
   liElement.appendChild(deleteInputBtnElement);
+  liElement.appendChild(textNode);
 }
 
 // toggle finished/not finished todo-list items class style ✅
