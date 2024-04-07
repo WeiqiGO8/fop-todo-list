@@ -51,6 +51,7 @@ function createElements(inputValue) {
   liElement.appendChild(inputCheckboxElement);
   liElement.appendChild(deleteInputBtnElement);
   liElement.appendChild(textNode);
+  updateTodoNumber();
 }
 
 // toggle finished/not finished todo-list items class style ✅
@@ -108,9 +109,12 @@ function deleteTodoTask() {
     localStorage.checkedTask = JSON.stringify(checkedListArray);
   }
   liElement.parentNode.removeChild(liElement);
+  updateTodoNumber();
 }
 
-function updateTodoNumber() {}
+function updateTodoNumber() {
+  numberElement.innerText = "Number: " + todoListArray.length;
+}
 
 function loadPageHandler() {
   inputBtnElement.addEventListener("click", addTodoTask);
