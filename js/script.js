@@ -10,6 +10,11 @@ let checkedListArray = JSON.parse(localStorage.checkedTask || "[]");
 
 let numberOfTodo = 0;
 
+// the following 15 lines of code was adapted from:
+// https://www.shecodes.io/athena/42851-how-to-create-a-to-do-list-using-html-css-and-javascript - 2024-03-28
+// https://chat.openai.com/share/f2900035-a174-4d04-b8d4-c89a610de4a6 - 2024-03-28
+// https://chat.openai.com/share/80637849-86aa-4553-b3ce-0f7f015e6a99 - 2024-04-05
+
 function addTodoTask() {
   const inputValue = inputTextElement.value;
 
@@ -26,7 +31,7 @@ function addTodoTask() {
   }
 }
 
-// The following 16 lines of code was adapted from
+// The following 24 lines of code was adapted from
 // https://www.shecodes.io/athena/42851-how-to-create-a-to-do-list-using-html-css-and-javascript - 2024-03-28
 // https://chat.openai.com/share/f2900035-a174-4d04-b8d4-c89a610de4a6 - 2024-03-28
 function createElements(inputValue) {
@@ -55,7 +60,9 @@ function createElements(inputValue) {
 }
 
 // toggle finished/not finished todo-list items class style ✅
-// The following 10 lines of code was adapted from https://chat.openai.com/share/0f3b3bb7-93c0-4adf-a355-e52a35bb5473 - 2024-03-28
+// The following 19 lines of code was adapted from:
+// https://chat.openai.com/share/0f3b3bb7-93c0-4adf-a355-e52a35bb5473 - 2024-03-28
+// https://chat.openai.com/share/80637849-86aa-4553-b3ce-0f7f015e6a99 - 2024-04-05
 function checkTodo(event) {
   let inputCheckboxElement = event.target;
   let liElement = inputCheckboxElement.parentNode;
@@ -67,7 +74,7 @@ function checkTodo(event) {
   } else {
     liElement.classList.remove("check");
 
-    // the following 6 lines of code was adapted from ChatGPT: https://chat.openai.com/share/454e06e4-c555-4ea3-93b0-da0556993904 - 2024-04-05
+    // the following 5 lines of code was adapted from: https://chat.openai.com/share/454e06e4-c555-4ea3-93b0-da0556993904 - 2024-04-05
     let index = checkedListArray.indexOf(liElement.innerText);
     if (index !== -1) {
       checkedListArray.splice(index, 1);
@@ -76,7 +83,7 @@ function checkTodo(event) {
   }
 }
 
-// the following 13 lines of code was adapted from ChatGPT: https://chat.openai.com/share/454e06e4-c555-4ea3-93b0-da0556993904 - 2024-04-05
+// the following 13 lines of code was adapted from: https://chat.openai.com/share/454e06e4-c555-4ea3-93b0-da0556993904 - 2024-04-05
 function saveCheckTodo() {
   // Mark todo items as checked and apply styling
   checkedListArray.forEach(function (todoText) {
@@ -92,7 +99,7 @@ function saveCheckTodo() {
 }
 
 // remove the checked-style class and remove the list item from the list ❌
-// the following 17 lines of code was adapted from chatGPT: https://chat.openai.com/share/4ca0cbad-71ae-4c4d-bfb6-f32ea30ee7ac - 2024-04-05
+// the following 17 lines of code was adapted from: https://chat.openai.com/share/4ca0cbad-71ae-4c4d-bfb6-f32ea30ee7ac - 2024-04-05
 function deleteTodoTask() {
   const liElement = this.parentNode;
   const todoText = liElement.innerText;
@@ -118,6 +125,7 @@ function updateTodoNumber() {
 
 function loadPageHandler() {
   inputBtnElement.addEventListener("click", addTodoTask);
+  // the following 2 lines of code was adapted from: https://chat.openai.com/share/80637849-86aa-4553-b3ce-0f7f015e6a99 - 2024-04-05
   todoListArray.forEach(createElements);
   checkedListArray.forEach(saveCheckTodo);
   updateTodoNumber();
