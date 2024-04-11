@@ -40,10 +40,21 @@ function createElements(task) {
   const inputCheckboxElement = document.createElement("input");
   inputCheckboxElement.type = "checkbox";
   inputCheckboxElement.classList.add("checkedbox");
-  // the following 3 lines of code was adapted from:
+  // the following 10 lines of code was adapted from:
   // https://chat.openai.com/share/91bb3fcb-811c-4f1b-a6b3-977308377bae - 2024-04-10
-  inputCheckboxElement.addEventListener("change", function (event) {
-    checkTodo(task, event);
+  // https://chat.openai.com/share/0f3b3bb7-93c0-4adf-a355-e52a35bb5473 - 2024-03-28
+  // https://chat.openai.com/share/80637849-86aa-4553-b3ce-0f7f015e6a99 - 2024-04-05
+  // https://chat.openai.com/share/91bb3fcb-811c-4f1b-a6b3-977308377bae - 2024-04-10
+  // https://chat.openai.com/share/1cb385a6-ffda-44f0-aa09-1d40e93ab08c - 2024-04-10
+  inputCheckboxElement.checked = task.finished;
+  inputCheckboxElement.addEventListener("change", () => {
+    task.finished = inputCheckboxElement.checked;
+    if (task.finished === true) {
+      liElement.classList.add("check");
+    } else {
+      liElement.classList.remove("check");
+    }
+    localStorage.todoTask = JSON.stringify(todoListArray);
   });
 
   const deleteInputBtnElement = document.createElement("input");
@@ -65,9 +76,11 @@ function createElements(task) {
   liElement.appendChild(deleteInputBtnElement);
   liElement.appendChild(textNode);
 
-  // the following 6 lines of code was adapted from: https://chat.openai.com/share/1cb385a6-ffda-44f0-aa09-1d40e93ab08c - 2024-04-10
-  inputCheckboxElement.checked = task.finished;
-
+  // the following 5 lines of code was adapted from: https://chat.openai.com/share/1cb385a6-ffda-44f0-aa09-1d40e93ab08c - 2024-04-10
+  // https://chat.openai.com/share/0f3b3bb7-93c0-4adf-a355-e52a35bb5473 - 2024-03-28
+  // https://chat.openai.com/share/80637849-86aa-4553-b3ce-0f7f015e6a99 - 2024-04-05
+  // https://chat.openai.com/share/91bb3fcb-811c-4f1b-a6b3-977308377bae - 2024-04-10
+  // https://chat.openai.com/share/1cb385a6-ffda-44f0-aa09-1d40e93ab08c - 2024-04-10
   if (task.finished === true) {
     liElement.classList.add("check");
   } else {
@@ -75,23 +88,6 @@ function createElements(task) {
   }
 
   updateTodoNumber();
-}
-
-// toggle finished/not finished todo-list items class style ✅
-// The following 10 lines of code was adapted from:
-// https://chat.openai.com/share/0f3b3bb7-93c0-4adf-a355-e52a35bb5473 - 2024-03-28
-// https://chat.openai.com/share/80637849-86aa-4553-b3ce-0f7f015e6a99 - 2024-04-05
-// https://chat.openai.com/share/91bb3fcb-811c-4f1b-a6b3-977308377bae - 2024-04-10
-// https://chat.openai.com/share/1cb385a6-ffda-44f0-aa09-1d40e93ab08c - 2024-04-10
-function checkTodo(task, event) {
-  task.finished = event.target.checked;
-  localStorage.todoTask = JSON.stringify(todoListArray);
-
-  if (task.finished === true) {
-    event.target.parentNode.classList.add("check");
-  } else {
-    event.target.parentNode.classList.remove("check");
-  }
 }
 
 // remove the checked-style class and remove the list item from the list ❌
